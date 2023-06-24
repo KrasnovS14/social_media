@@ -1,0 +1,29 @@
+from models import Post, PostPhoto, PostComment, db
+
+
+
+# получить посты
+
+def get_all_posts_db():
+    pass
+
+# Получить все изображения
+def get_all_photo_db():
+    pass
+
+
+# Получить определенный пост
+def get_exact_post_db(post_id):
+    pass
+
+# Удалить пост
+def delete_post_text_db(post_id, new_text):
+    pass
+
+# Изменить текст поста
+def change_post_db(post_id, new_text):
+    pass
+
+# Добавить комментарий к посту
+def add_comment_post_db(post_id, comment_user_id, comment_text):
+    pass
