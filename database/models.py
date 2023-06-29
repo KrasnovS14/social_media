@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
 
-# Создаем обьекты базу данных
+# Создаем объекты базу данных
 
 db = SQLAlchemy()
 
@@ -39,7 +39,7 @@ class Post(db.Model):
     __tablename__ = 'user_post'
     post_id = db.Column(db.Integer, primary_key = True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
-    photo_id = db.Column(db.Integer, db.ForeignKey('users_photo.photo_id'), nullable=False)
+    photo_id = db.Column(db.Integer, db.ForeignKey('user_photo.photo_id'), nullable=False)
     post_text = db.Column(db.String, nullable=False)
     post_date = db.Column(db.DateTime)
 
@@ -51,7 +51,7 @@ class Post(db.Model):
 class PostComment(db.Model):
     __tablename__ = 'post_comment'
     comment_id = db.Column(db.Integer, primary_key = True, autoincrement=True)
-    post_id = db.Column(db.Integer, db.ForeignKey('users_post.post_id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('user_post.post_id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
 
     comment_text = db.Column(db.String, nullable=False)
@@ -65,7 +65,7 @@ class PostComment(db.Model):
 class HashTag(db.Model):
     __tablename__ = 'hashtags'
     hashtag_id = db.Column(db.Integer, primary_key = True, autoincrement=True)
-    post_id = db.Column(db.Integer, db.ForeignKey('users_post.post_id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('user_post.post_id'), nullable=False)
     hashtag_name = db.Column(db.String, nullable=False)
 
     post_fk = db.relationship(Post)
